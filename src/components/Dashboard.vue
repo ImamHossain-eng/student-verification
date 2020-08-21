@@ -32,7 +32,7 @@ import db from './firebaseinit'
             }
         },
         created () {
-            db.collection('students').get().then(querySnapshot => {
+            db.collection('students').orderBy('student_id').get().then(querySnapshot => {
                 querySnapshot.forEach(doc => {
                     const data = {
                         'id': doc.id,
