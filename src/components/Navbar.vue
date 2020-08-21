@@ -1,6 +1,16 @@
 <template>
-    <div class="dashboard">
-        <h2>Navbar</h2>
-    </div>
+    <nav>
+        <div class="nav-wrapper green">
+            <div class="container">
+                <router-link to="/" class="brand-logo">
+                    Student Verification
+                </router-link>
+            </div>       
+        </div>
+    </nav>
 </template>
+
+<style scoped>
+
+</style>
 
