@@ -2,12 +2,16 @@
     <div id="dashboard">
         <ul class="collection with-header">
             <li class="collection-header">
-                <h4>Students' List</h4>
-            </li>
-            <input type="text" v-model="search" Placeholder="Search with Student's ID">
+                <h4>Students' List</h4>                 
+                <input class="input-field" type="text" v-model="search" Placeholder="Search with Student's ID">
+            </li>       
             <li v-for="student in filterStudent" v-bind:key="student.id" class="collection-item">
-                <strong>Overview:</strong> {{student.name}}----
-                {{student.student_id}} ----  {{student.position}} of {{student.dept}}
+                <strong> <i class="fa fa-get-pocket"></i> </strong> 
+                {{student.name}}
+                <i class="fa fa-info-circle"> </i>
+                {{student.student_id}}
+                <i class="	fa fa-graduation-cap"></i>
+                {{student.position}} of {{student.dept}}
 
                 <router-link class="secondary-content" v-bind:to="{name:'view-student', params: {student_id: student.student_id}}">
                     <i class="fa fa-eye"></i>
