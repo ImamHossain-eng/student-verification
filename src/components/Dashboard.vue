@@ -4,7 +4,8 @@
             <li class="collection-header">
                 <h4>Students' List</h4>
             </li>
-            <li v-for="student in students" v-bind:key="student.id" class="collection-item">
+            <input type="text" v-model="search" Placeholder="Search with Student's ID">
+            <li v-for="student in filterStudent" v-bind:key="student.id" class="collection-item">
                 <strong>Overview:</strong> {{student.name}}----
                 {{student.student_id}} ----  {{student.position}} of {{student.dept}}
 
@@ -28,7 +29,8 @@ import db from './firebaseinit'
         name: 'dashboard',
         data () {
             return {
-                students: []
+                students: [],
+                search:''
             }
         },
         created () {
@@ -45,6 +47,13 @@ import db from './firebaseinit'
                     this.students.push(data)
                 })
             })
+        },
+        computed: {
+            filterStudent: function() {
+                return this.students.filter((student) => {
+                    return student.student_id.match(this.search)
+                })
+            }
         }
     }
 </script>
